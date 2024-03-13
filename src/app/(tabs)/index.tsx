@@ -1,14 +1,16 @@
 import { StyleSheet, FlatList } from 'react-native';
-import { View, Text} from '../../components/Themed';
 import { tracks } from '@/assets/data/tracks';
-import TrackListItem from '@/src/components/TractListItem';
+import TrackListItem from '../../components/TractListItem';
+import Player from '../../components/Player';
 
 export default function HomeScreen() {
   return (
+      
       <FlatList 
         data={tracks} 
         renderItem={({ item }) => <TrackListItem track={item}/>} 
         showsHorizontalScrollIndicator={false}
+        ListHeaderComponent={() => <Player />}
         />
   );
 }

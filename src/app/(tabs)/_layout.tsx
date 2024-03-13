@@ -1,7 +1,9 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Pressable, View } from 'react-native';
+import Player from '@/src/components/Player';
+import {BottomTabBar} from '@react-navigation/bottom-tabs'
 
 import Colors from '../../constants/Colors';
 import { useColorScheme } from '../../components/useColorScheme';
@@ -22,10 +24,14 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+      }}
+      tabBar={(props) => (
+        <View>
+          <Player />
+          <BottomTabBar {...props} />
+        </View>
+      )}
+    >
       <Tabs.Screen
         name="index"
         options={{
