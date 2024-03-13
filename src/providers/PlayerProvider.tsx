@@ -10,6 +10,7 @@ type PlayerContextType = {
 
 
 const PlayerContext = createContext<PlayerContextType>({
+    track: undefined,
     setTract: () => {},
 })
 
