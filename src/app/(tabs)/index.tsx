@@ -11,7 +11,7 @@ export default function HomeScreen() {
         renderItem={({ item }) => <TrackListItem track={item}/>} 
         showsHorizontalScrollIndicator={false}
         ListHeaderComponent={() => <Player />}
-        />
+      />
   );
 }
 

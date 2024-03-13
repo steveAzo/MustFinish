@@ -1,13 +1,17 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-import { tracks } from '../../assets/data/tracks'
-
-const track = tracks[0]
+import { usePlayerContext } from '../providers/PlayerProvider'
 
 const Player = () => {
+    console.log('Player component is rendering...');
+    const { track } = usePlayerContext()
+
     if (!track) {
+        console.log('No track selected');
         return null;
     }
+
+    console.log('Selected track:', track);
 
     const image = track.album.images?.[0]
 
@@ -71,4 +75,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Player;
+export default Player; 
